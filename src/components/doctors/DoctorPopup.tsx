@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Award, Calendar, Users, Star, MapPin, Phone, Mail } from 'lucide-react';
+import { X, Award, Calendar, Users, Star, MapPin, Phone, Mail, Shield, BookOpen, Heart } from 'lucide-react';
 
 interface Doctor {
   id: string;
@@ -19,6 +19,8 @@ interface Doctor {
     text: string;
     patient: string;
   };
+  communityLink: string;
+  specialtyDescription: string;
 }
 
 interface DoctorPopupProps {
@@ -44,7 +46,7 @@ const DoctorPopup: React.FC<DoctorPopupProps> = ({ doctor, isOpen, onClose }) =>
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="w-full max-w-4xl bg-white dark:bg-dark-surface rounded-2xl shadow-2xl overflow-hidden"
+            className="w-full max-w-4xl bg-white dark:bg-dark-surface rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
@@ -57,11 +59,16 @@ const DoctorPopup: React.FC<DoctorPopupProps> = ({ doctor, isOpen, onClose }) =>
               </button>
               
               <div className="flex items-center space-x-6">
-                <img
-                  src={doctor.image}
-                  alt={doctor.name}
-                  className="w-24 h-24 rounded-full border-4 border-white/20 object-cover"
-                />
+                <div className="relative">
+                  <img
+                    src={doctor.image}
+                    alt={doctor.name}
+                    className="w-24 h-24 rounded-full border-4 border-white/20 object-cover"
+                  />
+                  <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-1">
+                    <Shield className="h-4 w-4 text-medical-blue" />
+                  </div>
+                </div>
                 <div>
                   <h2 className="text-3xl font-bold mb-2">{doctor.name}</h2>
                   <p className="text-xl opacity-90 mb-2">{doctor.specialty}</p>
@@ -84,14 +91,14 @@ const DoctorPopup: React.FC<DoctorPopupProps> = ({ doctor, isOpen, onClose }) =>
             </div>
 
             {/* Content */}
-            <div className="p-6 max-h-[60vh] overflow-y-auto">
+            <div className="p-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Left Column */}
                 <div className="space-y-6">
                   {/* Education */}
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center">
-                      <Award className="h-5 w-5 mr-2 text-medical-blue" />
+                      <BookOpen className="h-5 w-5 mr-2 text-medical-blue" />
                       Education & Qualifications
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-dark-card p-4 rounded-lg">
@@ -160,23 +167,41 @@ const DoctorPopup: React.FC<DoctorPopupProps> = ({ doctor, isOpen, onClose }) =>
                     </h3>
                     <div className="bg-gray-50 dark:bg-dark-card p-4 rounded-lg">
                       <p className="text-gray-700 dark:text-gray-300">
-                        Dr. {doctor.name.split(' ')[1]} specializes in advanced {doctor.specialty.toLowerCase()} 
-                        treatments with a focus on patient-centered care and cutting-edge medical technologies.
+                        {doctor.specialtyDescription}
                       </p>
                     </div>
                   </div>
 
                   {/* Community Link */}
                   <div className="bg-gradient-to-r from-medical-blue/10 to-medical-teal/10 p-4 rounded-lg border border-medical-blue/20">
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2 flex items-center">
+                      <Heart className="h-4 w-4 mr-2 text-medical-teal" />
                       Join {doctor.specialty} Community
                     </h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
                       Connect with other patients and get expert advice from Dr. {doctor.name.split(' ')[1]}
                     </p>
-                    <button className="w-full py-2 bg-medical-blue text-white rounded-lg hover:bg-medical-blue/90 transition-colors">
+                    <button 
+                      className="w-full py-2 bg-medical-blue text-white rounded-lg hover:bg-medical-blue/90 transition-colors"
+                      onClick={() => window.open(doctor.communityLink, '_blank')}
+                    >
                       Join Community
                     </button>
+                  </div>
+
+                  {/* AIIMS Badge */}
+                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex items-center justify-center">
+                        <Award className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-white">AIIMS Graduate</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                          Graduated from All India Institute of Medical Sciences
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

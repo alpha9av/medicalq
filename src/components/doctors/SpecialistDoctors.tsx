@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Brain, Bone, Activity, Star, Award } from 'lucide-react';
+import { Heart, Brain, Bone, Activity, Star, Award, Shield } from 'lucide-react';
 import DoctorPopup from './DoctorPopup';
 
 const SpecialistDoctors: React.FC = () => {
@@ -13,12 +13,13 @@ const SpecialistDoctors: React.FC = () => {
       name: 'Dr. Rajesh Kumar',
       specialty: 'Cardiology',
       experience: 15,
-      education: 'MBBS, MD (Medicine), DM (Cardiology) - AIIMS New Delhi',
+      education: 'MBBS, MD (Medicine), DM (Cardiology) - AIIMS New Delhi. Fellowship in Interventional Cardiology from Harvard Medical School.',
       achievements: [
         'Performed over 2000+ successful cardiac procedures',
         'Pioneer in minimally invasive cardiac surgery',
         'Published 50+ research papers in international journals',
-        'Recipient of National Excellence Award in Cardiology'
+        'Recipient of National Excellence Award in Cardiology',
+        'Former Head of Cardiology at AIIMS'
       ],
       image: 'https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=400',
       rating: 4.9,
@@ -30,6 +31,8 @@ const SpecialistDoctors: React.FC = () => {
         text: 'Dr. Kumar saved my life with his expertise in cardiac surgery. His compassionate care and advanced treatment gave me a second chance at life.',
         patient: 'Mrs. Priya Sharma'
       },
+      communityLink: '/community/cardiology',
+      specialtyDescription: 'Dr. Rajesh Kumar specializes in advanced cardiology treatments with a focus on interventional procedures, heart failure management, and preventive cardiology. He has pioneered several minimally invasive techniques.',
       icon: Heart,
       color: 'text-red-500',
       bgColor: 'bg-red-50 dark:bg-red-900/20'
@@ -39,12 +42,13 @@ const SpecialistDoctors: React.FC = () => {
       name: 'Dr. Meera Gupta',
       specialty: 'Oncology',
       experience: 12,
-      education: 'MBBS, MD (Medicine), DM (Medical Oncology) - AIIMS New Delhi',
+      education: 'MBBS, MD (Medicine), DM (Medical Oncology) - AIIMS New Delhi. Fellowship in Precision Oncology from Memorial Sloan Kettering.',
       achievements: [
-        'Specialist in precision cancer therapy',
-        'Led breakthrough research in immunotherapy',
-        'Treated 3000+ cancer patients successfully',
-        'International fellowship in Cancer Research'
+        'Specialist in precision cancer therapy and immunotherapy',
+        'Led breakthrough research in personalized cancer treatment',
+        'Treated 3000+ cancer patients with 85% success rate',
+        'International fellowship in Cancer Research',
+        'Published extensively on targeted therapy'
       ],
       image: 'https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=400',
       rating: 4.8,
@@ -56,6 +60,8 @@ const SpecialistDoctors: React.FC = () => {
         text: 'Dr. Gupta\'s innovative treatment approach helped me beat cancer. Her dedication and expertise are truly remarkable.',
         patient: 'Mr. Amit Singh'
       },
+      communityLink: '/community/oncology',
+      specialtyDescription: 'Dr. Meera Gupta is a leading medical oncologist specializing in precision cancer therapy, immunotherapy, and personalized treatment plans. She focuses on providing comprehensive cancer care with the latest treatment modalities.',
       icon: Activity,
       color: 'text-purple-500',
       bgColor: 'bg-purple-50 dark:bg-purple-900/20'
@@ -65,12 +71,13 @@ const SpecialistDoctors: React.FC = () => {
       name: 'Dr. Vikram Malhotra',
       specialty: 'Neurology',
       experience: 18,
-      education: 'MBBS, MD (Medicine), DM (Neurology) - AIIMS New Delhi',
+      education: 'MBBS, MD (Medicine), DM (Neurology) - AIIMS New Delhi. Fellowship in Neurocritical Care from Johns Hopkins.',
       achievements: [
-        'Expert in complex brain surgeries',
-        'Pioneer in stroke treatment protocols',
+        'Expert in complex brain surgeries and stroke management',
+        'Pioneer in advanced stroke treatment protocols',
         'Performed 1500+ neurological procedures',
-        'Head of Neuroscience Department'
+        'Head of Neuroscience Department',
+        'International recognition for epilepsy treatment'
       ],
       image: 'https://images.pexels.com/photos/5452274/pexels-photo-5452274.jpeg?auto=compress&cs=tinysrgb&w=400',
       rating: 4.9,
@@ -82,6 +89,8 @@ const SpecialistDoctors: React.FC = () => {
         text: 'Dr. Malhotra\'s expertise in neurology is unmatched. He successfully treated my complex brain condition with precision.',
         patient: 'Ms. Kavita Jain'
       },
+      communityLink: '/community/neurology',
+      specialtyDescription: 'Dr. Vikram Malhotra is a renowned neurologist specializing in stroke management, epilepsy treatment, and neurocritical care. He leads the neuroscience department with expertise in complex neurological disorders.',
       icon: Brain,
       color: 'text-blue-500',
       bgColor: 'bg-blue-50 dark:bg-blue-900/20'
@@ -91,12 +100,13 @@ const SpecialistDoctors: React.FC = () => {
       name: 'Dr. Sunita Agarwal',
       specialty: 'Orthopedics',
       experience: 14,
-      education: 'MBBS, MS (Orthopedics), MCh (Orthopedics) - AIIMS New Delhi',
+      education: 'MBBS, MS (Orthopedics), MCh (Orthopedics) - AIIMS New Delhi. Fellowship in Joint Replacement from Mayo Clinic.',
       achievements: [
-        'Specialist in joint replacement surgery',
-        'Expert in sports medicine and rehabilitation',
-        'Performed 2500+ orthopedic surgeries',
-        'Consultant for national sports teams'
+        'Specialist in joint replacement and sports medicine',
+        'Expert in minimally invasive orthopedic procedures',
+        'Performed 2500+ successful orthopedic surgeries',
+        'Consultant for national sports teams',
+        'Pioneer in robotic joint replacement surgery'
       ],
       image: 'https://images.pexels.com/photos/5452207/pexels-photo-5452207.jpeg?auto=compress&cs=tinysrgb&w=400',
       rating: 4.7,
@@ -108,6 +118,8 @@ const SpecialistDoctors: React.FC = () => {
         text: 'Dr. Agarwal\'s joint replacement surgery gave me my mobility back. Her skill and care are exceptional.',
         patient: 'Mr. Ravi Khanna'
       },
+      communityLink: '/community/orthopedics',
+      specialtyDescription: 'Dr. Sunita Agarwal is a leading orthopedic surgeon specializing in joint replacement, sports medicine, and minimally invasive procedures. She has extensive experience in treating complex bone and joint disorders.',
       icon: Bone,
       color: 'text-green-500',
       bgColor: 'bg-green-50 dark:bg-green-900/20'
@@ -125,7 +137,7 @@ const SpecialistDoctors: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-dark-surface">
+    <section id="verified-doctors" className="py-20 bg-gray-50 dark:bg-dark-surface transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -149,7 +161,7 @@ const SpecialistDoctors: React.FC = () => {
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Our team of AIIMS-graduated specialists brings world-class expertise and 
-            compassionate care to treat complex medical conditions.
+            compassionate care to treat complex medical conditions with proven excellence.
           </p>
         </motion.div>
 
@@ -173,9 +185,18 @@ const SpecialistDoctors: React.FC = () => {
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className={`absolute top-4 left-4 p-3 ${doctor.bgColor} rounded-full`}>
+                
+                {/* Specialty Icon */}
+                <div className={`absolute top-4 left-4 p-3 ${doctor.bgColor} rounded-full backdrop-blur-sm`}>
                   <doctor.icon className={`h-6 w-6 ${doctor.color}`} />
                 </div>
+                
+                {/* AIIMS Badge */}
+                <div className="absolute top-4 right-4 bg-yellow-100 dark:bg-yellow-900/80 px-2 py-1 rounded-full">
+                  <span className="text-xs font-bold text-yellow-800 dark:text-yellow-200">AIIMS</span>
+                </div>
+                
+                {/* Rating */}
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="flex items-center space-x-1 text-yellow-400 mb-2">
                     {[...Array(5)].map((_, i) => (
@@ -191,9 +212,13 @@ const SpecialistDoctors: React.FC = () => {
 
               {/* Doctor Info */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-medical-teal transition-colors">
-                  {doctor.name}
-                </h3>
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-medical-teal transition-colors">
+                    {doctor.name}
+                  </h3>
+                  <Shield className="h-5 w-5 text-medical-blue" />
+                </div>
+                
                 <p className="text-medical-blue font-semibold mb-2">{doctor.specialty}</p>
                 <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
                   {doctor.experience} years experience
@@ -228,7 +253,7 @@ const SpecialistDoctors: React.FC = () => {
           className="text-center mt-16"
         >
           <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Need specialized care? Our expert doctors are here to help.
+            Need specialized care? Our expert doctors are here to help with world-class treatment.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}

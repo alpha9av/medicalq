@@ -29,7 +29,7 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-dark-bg min-h-screen">
+    <div className="bg-white dark:bg-dark-bg min-h-screen transition-colors duration-200">
       <Header onAuthModal={handleAuthModal} />
       
       {/* Main Content with proper spacing */}
@@ -37,7 +37,7 @@ const HomePage: React.FC = () => {
         <Hero onGetStarted={() => handleAuthModal('register')} />
         
         {/* Add spacing between sections */}
-        <div className="py-8" />
+        <div className="py-12" />
         
         {/* Verified Doctors Section */}
         <div id="verified-doctors">
@@ -45,26 +45,33 @@ const HomePage: React.FC = () => {
         </div>
         
         {/* Add spacing */}
-        <div className="py-8" />
+        <div className="py-12" />
         
         {/* Features Section */}
         <Features />
         
         {/* Add spacing */}
-        <div className="py-8" />
+        <div className="py-12" />
         
         {/* Stats Section */}
         <Stats />
         
         {/* Add spacing */}
-        <div className="py-8" />
+        <div className="py-12" />
         
         {/* Community Platform */}
         <CommunityPlatform />
         
-        {/* Community Ads Sidebar */}
+        {/* Community Ads Sidebar - Fixed position for desktop */}
         <div className="fixed right-4 top-1/2 transform -translate-y-1/2 w-80 z-40 hidden xl:block">
           <CommunityAds />
+        </div>
+        
+        {/* Mobile Community Ads - Show below community platform on mobile */}
+        <div className="xl:hidden py-8 bg-gray-50 dark:bg-dark-surface">
+          <div className="max-w-md mx-auto px-4">
+            <CommunityAds />
+          </div>
         </div>
       </main>
       
@@ -96,7 +103,7 @@ const AppContent: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-white dark:bg-dark-bg flex items-center justify-center">
+      <div className="min-h-screen bg-white dark:bg-dark-bg flex items-center justify-center transition-colors duration-200">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-medical-teal/30 border-t-medical-teal rounded-full animate-spin mx-auto mb-4" />
           <p className="text-gray-600 dark:text-gray-400">Loading Sir Ganga Ram Hospital...</p>
@@ -107,7 +114,7 @@ const AppContent: React.FC = () => {
 
   return (
     <Router>
-      <div className="min-h-screen bg-white dark:bg-dark-bg">
+      <div className="min-h-screen bg-white dark:bg-dark-bg transition-colors duration-200">
         <Routes>
           <Route 
             path="/" 

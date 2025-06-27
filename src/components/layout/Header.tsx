@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ onAuthModal }) => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-xl border-b border-gray-200 dark:border-dark-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-dark-bg/90 backdrop-blur-xl border-b border-gray-200 dark:border-dark-border transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -78,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({ onAuthModal }) => {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-dark-surface rounded-xl border border-gray-200 dark:border-dark-border shadow-xl overflow-hidden"
+                  className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-dark-surface rounded-xl border border-gray-200 dark:border-dark-border shadow-xl overflow-hidden z-50"
                 >
                   <div className="p-4">
                     <div className="text-sm text-gray-400 mb-2">Quick results</div>
@@ -106,8 +106,31 @@ const Header: React.FC<HeaderProps> = ({ onAuthModal }) => {
               whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
               className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-dark-card"
+              aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
             >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              <AnimatePresence mode="wait">
+                {isDark ? (
+                  <motion.div
+                    key="sun"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Sun className="h-5 w-5" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="moon"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Moon className="h-5 w-5" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.button>
 
             {user ? (
@@ -155,7 +178,7 @@ const Header: React.FC<HeaderProps> = ({ onAuthModal }) => {
                         initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        className="absolute right-0 mt-2 w-48 bg-white dark:bg-dark-surface rounded-xl border border-gray-200 dark:border-dark-border shadow-xl overflow-hidden"
+                        className="absolute right-0 mt-2 w-48 bg-white dark:bg-dark-surface rounded-xl border border-gray-200 dark:border-dark-border shadow-xl overflow-hidden z-50"
                       >
                         <div className="p-4 border-b border-gray-200 dark:border-dark-border">
                           <div className="font-medium text-gray-900 dark:text-white">{user.name}</div>
@@ -244,13 +267,19 @@ const Header: React.FC<HeaderProps> = ({ onAuthModal }) => {
               {!user && (
                 <div className="flex space-x-3">
                   <button
-                    onClick={() => onAuthModal('login')}
+                    onClick={() => {
+                      onAuthModal('login');
+                      setIsMenuOpen(false);
+                    }}
                     className="flex-1 py-2 text-center text-gray-700 dark:text-gray-300 hover:text-medical-teal transition-colors"
                   >
                     Sign In
                   </button>
                   <button
-                    onClick={() => onAuthModal('register')}
+                    onClick={() => {
+                      onAuthModal('register');
+                      setIsMenuOpen(false);
+                    }}
                     className="flex-1 py-2 bg-medical-gradient text-white rounded-lg font-medium"
                   >
                     Get Started

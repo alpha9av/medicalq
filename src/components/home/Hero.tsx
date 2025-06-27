@@ -42,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white dark:from-dark-bg dark:via-dark-surface dark:to-dark-bg">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white dark:from-dark-bg dark:via-dark-surface dark:to-dark-bg transition-colors duration-200">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         {/* Gradient Orbs */}
@@ -177,7 +177,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
           >
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 10px 40px rgba(20, 184, 166, 0.4)" }}
@@ -205,7 +205,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-20"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -246,7 +246,7 @@ const Hero: React.FC<HeroProps> = ({ onGetStarted }) => {
             transition={{ duration: 2, repeat: Infinity }}
             className="flex flex-col items-center text-gray-500 dark:text-gray-400 hover:text-medical-teal dark:hover:text-medical-teal transition-colors cursor-pointer group"
           >
-            <span className="text-sm mb-2 group-hover:text-medical-teal transition-colors">Scroll to explore</span>
+            <span className="text-sm mb-2 group-hover:text-medical-teal transition-colors">Explore Our Specialists</span>
             <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 group-hover:border-medical-teal rounded-full flex justify-center transition-colors">
               <motion.div
                 animate={{ y: [0, 16, 0] }}
